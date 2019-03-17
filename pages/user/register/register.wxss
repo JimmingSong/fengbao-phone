@@ -1,0 +1,17 @@
+/* pages/user/register/register.wxss */
+.send-code{
+  font-size: 28rpx;
+  width: 200rpx;
+  height: 62rpx;
+  line-height: 62rpx;
+  border: 1px solid #D8D8D8;
+  border-radius: 14rpx;
+  text-align: center;
+  color: #979797;
+}
+.tag-radio{
+  font-size: 24rpx;
+}
+.radio-box{
+  margin-top: 42rpx;
+}

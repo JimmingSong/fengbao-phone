@@ -1,0 +1,49 @@
+.store-title{
+  font-size: 50rpx;
+  text-align: center;
+  padding: 110rpx;
+  letter-spacing: 20rpx;
+}
+.form-box{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.form-input-box{
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #CAC5C5;
+  height: 92rpx;
+  margin-bottom: 25rpx;
+  width: 556rpx;
+}
+.form-input-box>.iconfont {
+  font-size: 50rpx;
+  color: #979797;
+}
+.form-input-box>input{
+  padding-left: 10rpx;
+}
+.form-box .form-pholder{
+  font-size: 28rpx;
+}
+
+.form-box button{
+  margin-top: 62rpx;
+  height: 108rpx;
+  line-height: 108rpx;
+  background: #4A90E2;
+}
+.account-operation{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30rpx;
+}
+.account-operation>text:first-child{
+  color: #333333;
+  font-size: 28rpx;
+}
+.account-operation>text:last-child{
+  color: #9B9B9B;
+  font-size: 28rpx;
+}

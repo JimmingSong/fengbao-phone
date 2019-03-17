@@ -1,0 +1,5 @@
+<!--utils/component/Input/Input.wxml-->
+<view>
+  <view wx:if='{{showIcon}}' class='iconfont {{icon}}'></view>
+  <input name='name'></input>
+</view>

@@ -1,0 +1,23 @@
+<!--pages/user/login/login.wxml-->
+<view>
+  <view>
+    <view class='store-title'>锋豹</view>
+  </view>
+  <view class='form-box'>
+    <form bindsubmit='userLogin'>
+      <view class='form-input-box'>
+        <view class='iconfont icon-mobilephone'></view>
+        <input value='dfddf' name='password' placeholder-class='form-pholder color-979797' placeholder='请输入手机号' name='name'></input>
+      </view>
+      <view class='form-input-box'>
+        <view class='iconfont icon-lock'></view>
+        <input password name='password' placeholder-class='form-pholder color-979797' placeholder='请输入密码'></input>
+      </view>
+      <button type='primary' form-type='submit'>登录</button>
+      <view class='account-operation'>
+        <text bindtap='register'>快速注册</text>
+        <text>忘记密码?</text>
+      </view>
+    </form>
+  </view>
+</view>
