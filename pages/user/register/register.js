@@ -93,7 +93,7 @@ Page({
     }
     T.sendCode({email}).then(res => {
       if(res.success){
-        console.log(this.data);
+        this.cookie = res.sessionId;
         let time = 60;
         let T = setInterval(() => {
           time--;
@@ -122,7 +122,6 @@ Page({
   // 注册事件
   registerAccount(val){
     let {radiocheck} = this.data;
-    debugger;
     if(!radiocheck){
       wx.showToast({
         title: '请先阅读注册协议',
@@ -131,6 +130,7 @@ Page({
       return;
     }
     let data = val.detail.value;
+    data.sessionId = this.cookie;
     T.register(data).then(res => {
       console.log(res);
     })

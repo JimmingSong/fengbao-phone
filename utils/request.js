@@ -1,5 +1,8 @@
 function ajax(url, data, method = 'POST',header = {}) {
   let hostname = 'http://127.0.0.1:3001';
+  if(!header.cookie){
+    header.cookie = wx.getStorageSync('sessionId');
+  }
   return new Promise((resolve,reject) => {
     wx.request({
       url: `${hostname}${url}`,
