@@ -69,8 +69,14 @@ Page({
     let data = e.detail.value;
     T.customerLogin(data).then((res)=>{
       if (res.success){
+        wx.setStorageSync('token', res.token)
+        wx.redirectTo({
+          url: '../../index/index',
+        })
+      }else{
         wx.showToast({
           title: res.msg,
+          icon: 'none'
         })
       }
     });

@@ -52,5 +52,9 @@ Page({
       hasUserInfo: true
     })
   },
-  
+  userLogin(){
+    T.searchGoods({}).then(res => {
+      console.log(res);
+    });
+  }
 })

@@ -1,7 +1,7 @@
 function ajax(url, data, method = 'POST',header = {}) {
   let hostname = 'http://127.0.0.1:3001';
-  if(!header.cookie){
-    header.cookie = wx.getStorageSync('sessionId');
+  if(!header.token){
+    header.token = wx.getStorageSync('token');
   }
   return new Promise((resolve,reject) => {
     wx.request({
@@ -38,5 +38,8 @@ module.exports = {
   },
   register(data){
     return ajax('/addCustomer', data);
+  },
+  searchGoods(data){
+    return ajax('/goods/phone', data)
   }
 }
