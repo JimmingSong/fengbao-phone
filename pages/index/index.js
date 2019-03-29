@@ -56,5 +56,29 @@ Page({
     T.searchGoods({telNumber: '18355173486'}).then(res => {
       console.log(res);
     });
+  },
+  chooseImg(){
+    wx.chooseImage({
+      success: function(res) {
+        console.log(res);
+        const tempFilePaths = res.tempFilePaths;
+        let header = wx.getStorageSync('token');
+        wx.uploadFile({
+          url: 'http://127.0.0.1:3001/file/uploadFile',
+          filePath: tempFilePaths[0],
+          header: {
+            token: header
+          },
+          name: 'file',
+          formData: {
+            user: 'test'
+          },
+          success(res) {
+            const data = res.data
+            // do something
+          }
+        })
+      },
+    })
   }
 })
