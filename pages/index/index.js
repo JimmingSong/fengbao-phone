@@ -53,7 +53,7 @@ Page({
     })
   },
   userLogin(){
-    T.searchGoods({}).then(res => {
+    T.searchGoods({telNumber: '18355173486'}).then(res => {
       console.log(res);
     });
   }
