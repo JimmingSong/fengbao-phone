@@ -28,6 +28,10 @@ function ajax(url, data, method = 'POST',header = {}) {
 }
 
 module.exports = {
+  // 检查登陆状态
+  checkLogin(data){
+    return ajax('/checkLogin', data);
+  },
   // 登录
   customerLogin(data){
     return ajax('/loginCustomer', data);
@@ -36,9 +40,11 @@ module.exports = {
   sendCode(data){
     return ajax('/sendMail', data);
   },
+  // 注册用户
   register(data){
     return ajax('/addCustomer', data);
   },
+  // 查询商品数据
   searchGoods(data){
     return ajax('/goods/phone', data)
   }

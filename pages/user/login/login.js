@@ -65,7 +65,6 @@ Page({
 
   },
   userLogin(e) {
-    console.log(e);
     let data = e.detail.value;
     T.customerLogin(data).then((res)=>{
       if (res.success){
@@ -82,7 +81,7 @@ Page({
     });
   },
   register(){
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../register/register',
     })
   }
