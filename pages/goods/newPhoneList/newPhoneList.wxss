@@ -1,0 +1,13 @@
+/* pages/goods/newPhoneList.wxss */
+.goods{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.goods-item{
+  width: 320rpx;
+}
+image{
+  width: 320rpx;
+  height: 320rpx;
+}

@@ -1,0 +1,10 @@
+<!--pages/goods/newPhoneList.wxml-->
+<view class='goods'>
+  <view wx:for='{{goodsList}}' wx:for-item="item" class='goods-item'>
+    <image src="{{'http://'+item.productImg}}"></image>
+    <view>
+      <view>{{item.productName}}</view>
+      <view>{{item.productPrice}}</view>
+    </view>
+  </view>
+</view>

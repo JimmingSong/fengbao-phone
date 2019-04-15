@@ -2,16 +2,16 @@
 import T from './utils/request.js';
 App({
   onLaunch: function () {
-    // var token = wx.getStorageSync('token');
-    // T.checkLogin({ token: token}).then(res => {
-    //   console.log('aaa');
-    //   if(res.success === true){
-    //     console.log('bbb');
-    //     wx.redirectTo({
-    //       url: 'pages/user/register/register',
-    //     });
-    //   }
-    // })
+    var token = wx.getStorageSync('token');
+    T.checkLogin({ token: token}).then(res => {
+      console.log('aaa');
+      if(res.success === true){
+        console.log('bbb');
+        wx.redirectTo({
+          url: 'pages/user/login/login',
+        });
+      }
+    })
     // 展示本地存储能力
     // var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())
@@ -46,16 +46,16 @@ App({
   },
   onShow(){
     // TODO:路由重定向失败
-    var token = wx.getStorageSync('token');
-    T.checkLogin({ token: token }).then(res => {
-      console.log('aaa');
-      if (res.success === true) {
-        console.log('bbb');
-        wx.redirectTo({
-          url: 'pages/user/register/register',
-        });
-      }
-    })
+    // var token = wx.getStorageSync('token');
+    // T.checkLogin({ token: token }).then(res => {
+    //   console.log('aaa');
+    //   if (res.success === true) {
+    //     console.log('bbb');
+    //     wx.redirectTo({
+    //       url: 'pages/user/login/login',
+    //     });
+    //   }
+    // })
   },
   globalData: {
     userInfo: null
