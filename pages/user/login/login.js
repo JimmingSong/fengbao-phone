@@ -70,7 +70,7 @@ Page({
       if (res.success){
         wx.setStorageSync('token', res.token)
         wx.redirectTo({
-          url: '../../index/index',
+          url: '../../goods/newPhoneList/newPhoneList',
         })
       }else{
         wx.showToast({

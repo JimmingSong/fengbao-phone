@@ -1,4 +1,4 @@
-// pages/goods/newPhoneList.js
+// pages/goods/goodsDetail/goodsDetail.js
 import T from '../../../utils/request.js';
 Page({
 
@@ -6,32 +6,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goodsList: []
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options);
+    T.searchGoodsById(options).then(res => {
+      console.log(res);
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    T.searchGoods().then(res => {
-      this.setData({
-        goodsList: res.values
-      })
-    })
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**
@@ -67,14 +66,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  /**
-   * 查看商品详情
-   */
-  viewDetail(e){
-    let id = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: '../goodsDetail/goodsDetail?id='+ id,
-    })
   }
 })

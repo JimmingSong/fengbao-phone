@@ -1,13 +1,35 @@
 /* pages/goods/newPhoneList.wxss */
+.goods-con{
+  background: #eee;
+  min-height: 100vh;
+}
+.filter-box{
+  background: #fff;
+}
 .goods{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 40rpx;
 }
 .goods-item{
+  background: #fff;
   width: 320rpx;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 30rpx;
+  max-height: 218px;
 }
 image{
   width: 320rpx;
   height: 320rpx;
+}
+.text-box{
+  font-size: 12px;
+  padding: 20rpx;
+}
+.text-price{
+  margin-top: 20rpx;
+  font-size: 16px;
+  color: #efa639
 }

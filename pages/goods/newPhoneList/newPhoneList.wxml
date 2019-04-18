@@ -1,10 +1,15 @@
 <!--pages/goods/newPhoneList.wxml-->
-<view class='goods'>
-  <view wx:for='{{goodsList}}' wx:for-item="item" class='goods-item'>
-    <image src="{{'http://'+item.productImg}}"></image>
-    <view>
-      <view>{{item.productName}}</view>
-      <view>{{item.productPrice}}</view>
+<view class='goods-con'>
+  <view class='filter-box'>
+    过滤条件
+  </view>
+  <view class='goods'>
+    <view wx:for='{{goodsList}}' wx:for-key='key' wx:key='key' wx:for-item="item" class='goods-item' data-id='{{item._id}}' bindtap='viewDetail'>
+      <image src="{{'http://'+item.productImg}}"></image>
+      <view class='text-box'>
+        <view class='text-title'>{{item.productName}}</view>
+        <view class='text-price'>￥{{item.productPrice}}</view>
+      </view>
     </view>
   </view>
 </view>

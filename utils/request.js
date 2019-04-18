@@ -46,6 +46,9 @@ module.exports = {
   },
   // 查询商品数据
   searchGoods(data){
-    return ajax('/goods/searchGoods', data, 'get')
+    return ajax('/goods/searchGoodsByType', data)
   },
+  searchGoodsById(data){
+    return ajax('/goods/searchGoodsById', data);
+  }
 }
