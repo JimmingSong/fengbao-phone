@@ -7,7 +7,7 @@
     <form bindsubmit='userLogin'>
       <view class='form-input-box'>
         <view class='iconfont icon-mobilephone'></view>
-        <input value='dfddf' name='password' placeholder-class='form-pholder color-979797' placeholder='请输入手机号' name='name'></input>
+        <input value='admin' name='password' placeholder-class='form-pholder color-979797' placeholder='请输入手机号' name='name'></input>
       </view>
       <view class='form-input-box'>
         <view class='iconfont icon-lock'></view>

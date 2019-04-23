@@ -14,15 +14,17 @@ function ajax(url, data, method = 'POST',header = {}) {
         if (data.success){
           resolve(data);
         }else{
-          wx.showToast({
-            title: data.msg,
-          })
+          /**如果是未登陆状态 则跳转到登陆页面 */
+          if (data.state === '001') {
+            wx.navigateTo({
+              url: '../../user/login/login',
+            });
+          }
         }
       },
       fail: function(res) {
         reject(res);
       },
-      // complete: function(res) {},
     })
   })
 }

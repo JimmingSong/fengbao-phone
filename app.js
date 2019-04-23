@@ -2,16 +2,6 @@
 import T from './utils/request.js';
 App({
   onLaunch: function () {
-    var token = wx.getStorageSync('token');
-    T.checkLogin({ token: token}).then(res => {
-      console.log('aaa');
-      if(res.success === true){
-        console.log('bbb');
-        wx.redirectTo({
-          url: 'pages/user/login/login',
-        });
-      }
-    })
     // 展示本地存储能力
     // var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())
@@ -32,7 +22,6 @@ App({
     //         success: res => {
     //           // 可以将 res 发送给后台解码出 unionId
     //           this.globalData.userInfo = res.userInfo
-
     //           // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
     //           // 所以此处加入 callback 以防止这种情况
     //           if (this.userInfoReadyCallback) {
@@ -45,17 +34,6 @@ App({
     // })
   },
   onShow(){
-    // TODO:路由重定向失败
-    // var token = wx.getStorageSync('token');
-    // T.checkLogin({ token: token }).then(res => {
-    //   console.log('aaa');
-    //   if (res.success === true) {
-    //     console.log('bbb');
-    //     wx.redirectTo({
-    //       url: 'pages/user/login/login',
-    //     });
-    //   }
-    // })
   },
   globalData: {
     userInfo: null
