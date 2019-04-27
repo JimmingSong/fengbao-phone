@@ -1,0 +1,10 @@
+<!--utils/component/Li/Li.wxml-->
+<li-item>
+  <view class='li-item-box' bindtap='jumpToPage'>
+    <text class='li-item-icon iconfont {{icon}}'></text>
+    <view class='li-item-text'>
+      <text>{{text}}</text>
+      <text class='iconfont icon-enter'></text>
+    </view>
+  </view>
+</li-item>

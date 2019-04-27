@@ -5,7 +5,9 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/user/register/register",
-    "pages/goods/goodsDetail/goodsDetail"
+    "pages/goods/goodsDetail/goodsDetail",
+    "pages/user/manage/manage",
+    "pages/user/adress/adress"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -18,28 +20,35 @@
     "list": [
       {
         "pagePath": "pages/goods/newPhoneList/newPhoneList",
-        "iconPath": "",
-        "selectedIconPath": "",
+        "iconPath": "./utils/image/tabBar/homepage-d.png",
+        "selectedIconPath": "./utils/image/tabBar/homepage.png",
         "text": "首页"
       },
       {
         "pagePath": "pages/goods/newPhoneList/newPhoneList",
-        "iconPath": "",
-        "selectedIconPath": "",
-        "text": "首页"
+        "iconPath": "./utils/image/tabBar/-kefu-d.png",
+        "selectedIconPath": "./utils/image/tabBar/-kefu.png",
+        "text": "服务"
       },
       {
         "pagePath": "pages/goods/newPhoneList/newPhoneList",
-        "iconPath": "",
-        "selectedIconPath": "",
-        "text": "首页"
+        "iconPath": "./utils/image/tabBar/liebiaoshitucaidan-d.png",
+        "selectedIconPath": "./utils/image/tabBar/liebiaoshitucaidan.png",
+        "text": "订单"
       },
       {
         "pagePath": "pages/goods/newPhoneList/newPhoneList",
-        "iconPath": "",
-        "selectedIconPath": "",
+        "iconPath": "./utils/image/tabBar/caigou-xianxing-d.png",
+        "selectedIconPath": "./utils/image/tabBar/caigou-xianxing.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/user/manage/manage",
+        "iconPath": "./utils/image/tabBar/icon_signal-d.png",
+        "selectedIconPath": "./utils/image/tabBar/icon_signal.png",
         "text": "我的"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

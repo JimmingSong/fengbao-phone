@@ -1,1 +1,15 @@
 /* pages/user/login/login.wxss */
+.weixin-logo-box{
+  margin-top: 50rpx;
+  text-align: center;
+}
+.weixin-logo{
+  width: 150rpx;
+  height: 150rpx;
+}
+.user-btn{
+  border:none !important;
+  width:150rpx;
+  height:150rpx;
+  padding:0;
+}

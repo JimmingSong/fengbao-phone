@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "li-list": "../../../utils/component/Li/Li"
+  }
+}

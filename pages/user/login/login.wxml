@@ -20,4 +20,8 @@
       </view>
     </form>
   </view>
+  <view class='weixin-logo-box'>
+    <button class='user-btn' open-type="getUserInfo" plain='true' bindgetuserinfo='getUserInfo' lang='zh_CN'><image class='weixin-logo' src='../../../utils/image/weixin.png'></image></button>
+    <!-- <image class='weixin-logo' src='../../../utils/image/weixin.png'></image> -->
+  </view>
 </view>

@@ -1,0 +1,26 @@
+/* utils/component/Li/Li.wxss */
+@import '../../iconfont/iconfont.wxss';
+.li-item-box{
+  display: flex;
+  align-items: center;
+  padding-left: 50rpx;
+  border-top: 2rpx solid #eee;
+  border-bottom: 2rpx solid #eee;
+  background: #fff;
+  margin: 20rpx 0;
+}
+.li-item-icon{
+  font-size: 60rpx;
+}
+.li-item-text{
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+  padding: 20rpx 0;
+  margin-left: 40rpx;
+  margin-right: 20rpx;
+}
+.li-item-text>.iconfont{
+  font-size: 60rpx;
+}

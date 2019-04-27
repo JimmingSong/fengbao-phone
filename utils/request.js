@@ -1,7 +1,7 @@
 function ajax(url, data, method = 'POST',header = {}) {
   let hostname = 'http://127.0.0.1:3001';
-  if(!header.token){
-    header.token = wx.getStorageSync('token');
+  if(!header.sessionId){
+    header.sessionId = wx.getStorageSync('sessionId');
   }
   return new Promise((resolve,reject) => {
     wx.request({
@@ -30,6 +30,9 @@ function ajax(url, data, method = 'POST',header = {}) {
 }
 
 module.exports = {
+  getWeChatInfo(data){
+    return ajax('/ignore/weChat',data)
+  },
   // 检查登陆状态
   checkLogin(data){
     return ajax('/checkLogin', data);
@@ -38,6 +41,10 @@ module.exports = {
   customerLogin(data){
     return ajax('/loginCustomer', data);
   },
+  // 查找用户信息
+  customerFind(data){
+    return ajax('/customerFind', data);
+  },
   // 发送验证码
   sendCode(data){
     return ajax('/sendMail', data);
@@ -45,6 +52,9 @@ module.exports = {
   // 注册用户
   register(data){
     return ajax('/addCustomer', data);
+  },
+  customerLogout(data){
+    return ajax('/logoutCustomer', data);
   },
   // 查询商品数据
   searchGoods(data){

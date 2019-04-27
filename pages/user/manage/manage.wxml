@@ -1,0 +1,25 @@
+<!--pages/user/manage/manage.wxml-->
+<view class='customer'>
+  <view class='customer-header'>
+    <view class='customer-header-img'>
+      <image src='{{userInfo.headerImg}}'></image>
+    </view>
+    <view class='customer-header-name'>
+      <view>{{userInfo.name}}</view>
+      <view>地区: {{userInfo.province + ' ' + userInfo.city}}</view>
+    </view>
+    <view class='customer-icon'>
+      <text class='iconfont icon-enter'></text>
+    </view>
+  </view>
+  <view>
+    <li-list
+    text='收货地址'
+    icon='icon-coordinates_fill'
+    bind:toPage='jumpToAddress'
+    ></li-list>
+  </view>
+  <view class='get-out' catchtap='logout'>
+    <text>注销</text>
+  </view>
+</view>

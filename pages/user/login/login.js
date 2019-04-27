@@ -1,5 +1,7 @@
 // pages/user/login/login.js
 import T from '../../../utils/request.js'
+//获取应用实例
+const App = getApp();
 Page({
 
   /**
@@ -69,7 +71,7 @@ Page({
     T.customerLogin(data).then((res)=>{
       if (res.success){
         wx.setStorageSync('token', res.token)
-        wx.redirectTo({
+        wx.switchTab({
           url: '../../goods/newPhoneList/newPhoneList',
         })
       }else{
@@ -79,6 +81,26 @@ Page({
         })
       }
     });
+  },
+  getUserInfo(e) {
+    let data = e.detail;
+    console.log(e);
+    if (data.errMsg === 'getUserInfo:ok'){
+      let userInfo = data.userInfo;
+      T.customerLogin({ encryptedData: data.encryptedData, userInfo, iv: data.iv, appSession: App.globalData.appId}).then(res => {
+        if(res.success){
+          wx.setStorageSync('sessionId', res.sessionId);
+          wx.switchTab({
+            url: '../../goods/newPhoneList/newPhoneList',
+          });
+        } else {
+          wx.showToast({
+            title: res.msg,
+            icon: 'none'
+          })
+        }
+      })
+    }
   },
   register(){
     wx.navigateTo({

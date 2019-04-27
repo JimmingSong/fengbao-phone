@@ -8,11 +8,21 @@ App({
     // wx.setStorageSync('logs', logs)
 
     // 登录
-    // wx.login({
-    //   success: res => {
-    //     // 发送 res.code 到后台换取 openId, sessionKey, unionId
-    //   }
-    // })
+    wx.login({
+      success: res => {
+        T.getWeChatInfo({code: res.code}).then(res => {
+          if(!res.success){
+            wx.showToast({
+              title: '登录失败',
+              icon: 'none'
+            })
+          } else {
+            this.globalData.appId = res.appId
+          }
+        })
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+      }
+    })
     // 获取用户信息
     // wx.getSetting({
     //   success: res => {
@@ -36,6 +46,7 @@ App({
   onShow(){
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    appId: ''
   }
 })

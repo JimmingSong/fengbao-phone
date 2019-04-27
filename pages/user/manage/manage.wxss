@@ -1,0 +1,52 @@
+/* pages/user/manage/manage.wxss */
+.customer{
+  min-height: 100vh;
+  background: #ccc;
+}
+.customer-header{
+  display: flex;
+  padding:20rpx 40rpx 20rpx;
+  margin-bottom: 20rpx;
+  border-bottom: 2rpx solid #eee;
+  background: #fff;
+}
+.customer-header-img{
+  width:150rpx;
+  height:150rpx;
+  border-radius:25rpx;
+  overflow:hidden;
+}
+.customer-header-img image{
+  width: 100%;
+  height: 100%;
+}
+.customer-header-name{
+  color: #333;
+  flex-grow: 1;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  padding-left: 40rpx;
+}
+.customer-header-name>view:first-child{
+  font: normal 700 40rpx 'yahei'
+}
+.customer-header-name>view:last-child{
+  color: #bbb;
+}
+.customer-icon{
+  display: flex;
+  align-items: center;
+  font-size: 40rpx;
+}
+.customer-icon text{
+  font-size:70rpx;
+  color:#666;
+}
+.get-out{
+  height: 50rpx;
+  line-height: 50rpx;
+  background: #fff;
+  padding: 20rpx 0;
+  text-align: center;
+}
