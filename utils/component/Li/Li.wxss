@@ -3,7 +3,7 @@
 .li-item-box{
   display: flex;
   align-items: center;
-  padding-left: 50rpx;
+  padding-left: 40rpx;
   border-top: 2rpx solid #eee;
   border-bottom: 2rpx solid #eee;
   background: #fff;
@@ -18,7 +18,7 @@
   align-items: center;
   flex-grow: 1;
   padding: 20rpx 0;
-  margin-left: 40rpx;
+  margin-left: 15rpx;
   margin-right: 20rpx;
 }
 .li-item-text>.iconfont{

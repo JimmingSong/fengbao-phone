@@ -14,7 +14,7 @@
   </view>
   <view>
     <li-list
-    text='收货地址'
+    text='我的收货地址'
     icon='icon-coordinates_fill'
     bind:toPage='jumpToAddress'
     ></li-list>

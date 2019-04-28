@@ -1,1 +1,36 @@
 /* pages/user/adress/adress.wxss */
+.address-box{
+  display: flex;
+  padding: 10rpx 20rpx 20rpx;
+  border-bottom:1px solid #ddd;
+}
+.address-icon{
+  display: flex;
+  align-items: center;
+}
+.address-icon>.iconfont{
+  font-size: 70rpx;
+}
+.address-msg{
+  margin-left: 20rpx;
+  flex-grow: 1;
+}
+.address-name{}
+.address-phone{
+  font-size: 30rpx;
+  margin-left: 20rpx;
+  color: #aaa;
+}
+.address-pos{
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  color: #777;
+}
+.address-play{
+  display: flex;
+  align-items: center;
+  margin-right: 15rpx;
+}
+.address-play>text{
+  font-size: 50rpx;
+}

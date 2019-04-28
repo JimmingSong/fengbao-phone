@@ -1,2 +1,18 @@
 <!--pages/user/adress/adress.wxml-->
-<text>pages/user/adress/adress.wxml</text>
+<view class='address'>
+  <view class='address-box' wx:for='{{addressList}}' wx:for-key='key'>
+    <view class='address-icon'>
+      <text class='iconfont icon-coordinates_fill'></text>
+    </view>
+    <view class='address-msg'>
+      <view>
+        <text class='address-name'>{{item.name}}</text>
+        <text class='address-phone'>{{item.phone}}</text>
+      </view>
+      <view class='address-pos'>{{item.pos}}</view>
+    </view>
+    <view class='address-play'>
+      <text class='iconfont icon-editor'></text>
+    </view>
+  </view>
+</view>

@@ -45,6 +45,10 @@ module.exports = {
   customerFind(data){
     return ajax('/customerFind', data);
   },
+  // 查找指定属性
+  customerField(data){
+    return ajax('/customerField', data)
+  },
   // 发送验证码
   sendCode(data){
     return ajax('/sendMail', data);
@@ -53,6 +57,7 @@ module.exports = {
   register(data){
     return ajax('/addCustomer', data);
   },
+  // 注销用户
   customerLogout(data){
     return ajax('/logoutCustomer', data);
   },

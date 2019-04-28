@@ -1,11 +1,12 @@
 // pages/user/adress/adress.js
+import T from '../../../utils/request.js';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    addressList: []
   },
 
   /**
@@ -26,7 +27,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    T.customerField({ atr: 'address' }).then(res => {
+      this.setData({
+        addressList: res.value
+      });
+    })
   },
 
   /**
