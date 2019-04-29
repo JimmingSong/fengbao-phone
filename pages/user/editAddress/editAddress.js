@@ -1,19 +1,24 @@
-// pages/user/adress/adress.js
-import T from '../../../utils/request.js';
+// pages/user/editAddress/editAddress.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    addressList: []
+    defaultData: {
+      name: '',
+      phone: '',
+      address: ''
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      defaultData: options
+    })
   },
 
   /**
@@ -27,11 +32,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    T.customerField({ atr: 'address' }).then(res => {
-      this.setData({
-        addressList: res.value
-      });
-    })
+
   },
 
   /**
@@ -68,14 +69,7 @@ Page({
   onShareAppMessage: function () {
 
   },
-  toPage(e){
+  handleSubmit(e){
     console.log(e);
-    let tar = e.currentTarget.dataset;
-    let name = tar.name;
-    let phone = tar.phone;
-    let address = tar.address;
-    wx.navigateTo({
-      url: `../editAddress/editAddress?name=${name}&phone=${phone}&address=${address}`,
-    })
   }
 })

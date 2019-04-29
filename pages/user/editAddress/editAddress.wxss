@@ -1,0 +1,23 @@
+/* pages/user/editAddress/editAddress.wxss */
+.edit-box{
+  height: 100vh;
+}
+.form-item{
+  padding: 20rpx;
+  border-bottom: 2rpx solid #ddd;
+}
+.form-item>input{
+  background: #fff;
+}
+.form-item>textarea{
+  height: 150rpx;
+  background: #fff;
+}
+.form-btn{
+  display: flex;
+  justify-content: center;
+  margin-top: 40rpx;
+}
+.form-btn>button{
+  width: 240rpx;
+}
