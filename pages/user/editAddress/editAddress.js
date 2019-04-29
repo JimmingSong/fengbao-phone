@@ -8,7 +8,8 @@ Page({
     defaultData: {
       name: '',
       phone: '',
-      address: ''
+      address: '',
+      index: ''
     }
   },
 
