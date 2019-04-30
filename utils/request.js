@@ -61,6 +61,10 @@ module.exports = {
   customerLogout(data){
     return ajax('/logoutCustomer', data);
   },
+  // 
+  updateAtrData(data){
+    return ajax('/updateCustomer', data)
+  },
   // 查询商品数据
   searchGoods(data){
     return ajax('/goods/searchGoodsByType', data)

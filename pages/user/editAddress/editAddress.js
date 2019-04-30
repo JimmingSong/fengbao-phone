@@ -1,4 +1,5 @@
 // pages/user/editAddress/editAddress.js
+import T from '../../../utils/request.js';
 Page({
 
   /**
@@ -72,5 +73,14 @@ Page({
   },
   handleSubmit(e){
     console.log(e);
+    let value = e.detail.value;
+    let data = {
+      index: this.data.defaultData.index,
+      atr: 'address',
+      data: value
+    }
+    T.updateAtrData(data).then(res => {
+      console.log(res);
+    })
   }
 })

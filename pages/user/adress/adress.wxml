@@ -1,6 +1,6 @@
 <!--pages/user/adress/adress.wxml-->
 <view class='address'>
-  <view class='address-box' wx:key='{{index}}' wx:for='{{addressList}}' wx:for-key='key'>
+  <view class='address-box' wx:key='{{index}}' wx:for='{{addressList}}' wx:for-index='index' wx:for-key='key'>
     <view class='address-icon'>
       <text class='iconfont icon-coordinates_fill'></text>
     </view>
