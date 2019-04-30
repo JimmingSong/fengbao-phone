@@ -1,7 +1,9 @@
 <!--pages/goods/newPhoneList.wxml-->
 <view class='goods-con'>
   <view class='filter-box'>
-    过滤条件
+    <view wx:for='{{menuList}}' class='{{item.class}}' wx:key='{{key}}' data-index='{{index}}' bindtap='searchByType'>
+      <text>{{item.text}}</text>
+    </view>
   </view>
   <view class='goods'>
     <view wx:for='{{goodsList}}' wx:for-key='key' wx:key='key' wx:for-item="item" class='goods-item' data-id='{{item._id}}' bindtap='viewDetail'>

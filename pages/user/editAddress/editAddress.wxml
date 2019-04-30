@@ -2,16 +2,16 @@
 <view class='edit-box'>
   <form bindsubmit='handleSubmit'>
     <view class='form-item'>
-      <input value='{{defaultData.name}}' name='name'></input>
+      <input value='{{defaultData.name}}' name='name' placeholder='姓名'></input>
     </view>
     <view class='form-item'>
-      <input value='{{defaultData.phone}}' name='phone'></input>
+      <input value='{{defaultData.phone}}' name='phone' placeholder='电话'></input>
     </view>
     <view class='form-item'>
-      <textarea value='{{defaultData.address}}' name='address'></textarea>
+      <textarea value='{{defaultData.address}}' name='address' placeholder='地址'></textarea>
     </view>
     <view class='form-btn'>
-      <button>删除</button>
+      <button wx:if='{{add}}' catchtap='delete'>删除</button>
       <button type='primary' form-type='submit'>保存</button>
     </view>
   </form>

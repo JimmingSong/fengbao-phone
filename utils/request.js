@@ -19,6 +19,8 @@ function ajax(url, data, method = 'POST',header = {}) {
             wx.navigateTo({
               url: '../../user/login/login',
             });
+          } else {
+            resolve(res);
           }
         }
       },

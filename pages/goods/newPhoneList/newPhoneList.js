@@ -6,7 +6,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goodsList: []
+    goodsList: [],
+    menuList: [
+      {
+        text: '全部',
+        class: 'activeView'
+      },
+      {
+        text: '手机',
+        class: ''
+      },
+      {
+        text: '配件',
+        class: ''
+      },
+      {
+        text: '服务',
+        class: ''
+      },
+      {
+        text: '其他',
+        class: ''
+      }
+    ]
   },
 
   /**
@@ -27,11 +49,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    T.searchGoods({}).then(res => {
-      this.setData({
-        goodsList: res.values
-      })
-    })
+    this.findAll();
   },
 
   /**
@@ -68,6 +86,20 @@ Page({
   onShareAppMessage: function () {
 
   },
+  findAll(data){
+    T.searchGoods(data).then(res => {
+      console.log(res);
+      if(res.success){
+        this.setData({
+          goodsList: res.values
+        })
+      }else{
+        this.setData({
+          goodsList:[]
+        })
+      }
+    })
+  },
   /**
    * 查看商品详情
    */
@@ -76,5 +108,17 @@ Page({
     wx.navigateTo({
       url: '../goodsDetail/goodsDetail?id='+ id,
     })
+  },
+  searchByType(e){
+    let value = e.currentTarget.dataset;
+    let menuList = this.data.menuList;
+    menuList.forEach(item => item.class = '');
+    menuList[value.index].class = 'activeView';
+    this.setData({
+      menuList,
+    });
+    let data = {};
+    if (value.index !== 0) data.type = value.index;
+    this.findAll(data);
   }
 })

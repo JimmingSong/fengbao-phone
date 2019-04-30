@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    add:true,
     defaultData: {
       name: '',
       phone: '',
@@ -18,9 +19,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      defaultData: options
-    })
+    if(options.add){
+      this.setData({
+        add: false
+      })
+    }else{
+      this.setData({
+        defaultData: options
+      })
+    }
   },
 
   /**
@@ -72,15 +79,36 @@ Page({
 
   },
   handleSubmit(e){
-    console.log(e);
     let value = e.detail.value;
     let data = {
-      index: this.data.defaultData.index,
       atr: 'address',
       data: value
     }
+    debugger;
+    if(this.data.add){
+      data.index = this.data.defaultData.index;
+    } else {
+      data.operate = 'add';
+    }
     T.updateAtrData(data).then(res => {
-      console.log(res);
+      if(res.success){
+        wx.navigateBack({})
+      }
+    })
+  },
+  /**
+   * 删除当前地址
+   */
+  delete(e){
+    let data = {
+      index: this.data.defaultData.index,
+      atr: 'address',
+      operate: 'delete'
+    }
+    T.updateAtrData(data).then(res => {
+      if (res.success) {
+        wx.navigateBack({})
+      }
     })
   }
 })

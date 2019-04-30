@@ -8,7 +8,8 @@
     "pages/goods/goodsDetail/goodsDetail",
     "pages/user/manage/manage",
     "pages/user/adress/adress",
-    "pages/user/editAddress/editAddress"
+    "pages/user/editAddress/editAddress",
+    "pages/user/message/message"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -24,18 +25,6 @@
         "iconPath": "./utils/image/tabBar/homepage-d.png",
         "selectedIconPath": "./utils/image/tabBar/homepage.png",
         "text": "首页"
-      },
-      {
-        "pagePath": "pages/goods/newPhoneList/newPhoneList",
-        "iconPath": "./utils/image/tabBar/-kefu-d.png",
-        "selectedIconPath": "./utils/image/tabBar/-kefu.png",
-        "text": "服务"
-      },
-      {
-        "pagePath": "pages/goods/newPhoneList/newPhoneList",
-        "iconPath": "./utils/image/tabBar/liebiaoshitucaidan-d.png",
-        "selectedIconPath": "./utils/image/tabBar/liebiaoshitucaidan.png",
-        "text": "订单"
       },
       {
         "pagePath": "pages/goods/newPhoneList/newPhoneList",

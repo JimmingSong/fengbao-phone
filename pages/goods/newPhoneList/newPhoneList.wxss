@@ -4,7 +4,23 @@
   min-height: 100vh;
 }
 .filter-box{
+  position: relative;
+  display: flex;
+  justify-content: space-around;
   background: #fff;
+}
+.filter-box>view{
+  flex-grow: 1;
+  text-align: center;
+  width: 100rpx;
+  padding: 30rpx 0;
+  border-right: 2rpx solid #ddd;
+}
+.filter-box>view:last-child{
+  border-right: none;
+}
+.activeView{
+  border-bottom: 8rpx solid #f00;
 }
 .goods{
   display: flex;

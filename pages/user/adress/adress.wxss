@@ -34,3 +34,6 @@
 .address-play>text{
   font-size: 50rpx;
 }
+.address-add{
+  margin-top: 40rpx;
+}

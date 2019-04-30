@@ -9,10 +9,13 @@
         <text class='address-name'>{{item.name}}</text>
         <text class='address-phone'>{{item.phone}}</text>
       </view>
-      <view class='address-pos'>{{item.pos}}</view>
+      <view class='address-pos'>{{item.address}}</view>
     </view>
-    <view class='address-play' data-name='{{item.name}}' data-phone='{{item.phone}}' data-address='{{item.pos}}' data-index='{{index}}' bindtap='toPage'>
+    <view class='address-play' data-name='{{item.name}}' data-phone='{{item.phone}}' data-address='{{item.address}}' data-index='{{index}}' bindtap='toPage'>
       <text class='iconfont icon-editor'></text>
     </view>
+  </view>
+  <view class='address-add'>
+    <button type='primary' catchtap='addAddress'>新增</button>
   </view>
 </view>

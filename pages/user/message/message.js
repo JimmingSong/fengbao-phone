@@ -1,12 +1,11 @@
-// pages/user/adress/adress.js
-import T from '../../../utils/request.js';
+// pages/user/message/message.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    addressList: []
+
   },
 
   /**
@@ -27,11 +26,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    T.customerField({ atr: 'address' }).then(res => {
-      this.setData({
-        addressList: res.value
-      });
-    })
+
   },
 
   /**
@@ -67,21 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  toPage(e){
-    console.log(e);
-    let tar = e.currentTarget.dataset;
-    let name = tar.name;
-    let phone = tar.phone;
-    let address = tar.address;
-    let index = tar.index;
-    wx.navigateTo({
-      url: `../editAddress/editAddress?name=${name}&phone=${phone}&address=${address}&index=${index}`,
-    })
-  },
-  addAddress(e){
-    wx.navigateTo({
-      url: '../editAddress/editAddress?add=add',
-    })
   }
 })
