@@ -88,7 +88,6 @@ Page({
   },
   findAll(data){
     T.searchGoods(data).then(res => {
-      console.log(res);
       if(res.success){
         this.setData({
           goodsList: res.values

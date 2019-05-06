@@ -1,2 +1,23 @@
 <!--pages/goods/goodsDetail/goodsDetail.wxml-->
-<view></view>
+<view class='detail'>
+  <view class='detail-carousel'>
+    <image src="{{'http://' + goodsData.productImg}}"></image>
+  </view>
+  <view class='detail-msg'>
+      <view class='detail-name'>{{goodsData.productName}}</view>
+      <view class='like-number'>
+        <text class='iconfont icon-collection'></text>
+        <text>{{goodsData.like}}</text>
+      </view>
+  </view>
+  <view class='detail-price'>￥{{goodsData.productPrice}} <text class='market-price'>{{goodsData.productMarketPrice}}</text></view>
+  <view class='detail-img'>
+    <view wx:key='{{index}}' wx:for='{{goodsData.detailImg}}'>
+      <image src='{{item}}'></image>
+    </view>
+  </view>
+  <view class='detail-operate'>
+    <view class='car'>加入购物车</view>
+    <view class='buy'>立即购买</view>
+  </view>
+</view>

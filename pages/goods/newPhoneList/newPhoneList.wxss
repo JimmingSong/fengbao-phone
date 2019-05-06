@@ -10,6 +10,7 @@
   background: #fff;
 }
 .filter-box>view{
+  position: relative;
   flex-grow: 1;
   text-align: center;
   width: 100rpx;

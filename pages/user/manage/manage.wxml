@@ -18,6 +18,16 @@
     icon='icon-coordinates_fill'
     bind:toPage='jumpToAddress'
     ></li-list>
+    <li-list
+    text='我的订单'
+    icon='icon-coordinates_fill'
+    bind:toPage=''
+    ></li-list>
+    <li-list
+    text='产品管理'
+    icon='icon-coordinates_fill'
+    bind:toPage=''
+    ></li-list>
   </view>
   <view class='get-out' catchtap='logout'>
     <text>注销</text>

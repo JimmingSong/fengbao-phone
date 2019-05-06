@@ -1,1 +1,55 @@
 /* pages/goods/goodsDetail/goodsDetail.wxss */
+.detail{
+  padding-bottom: 100rpx;
+}
+.detail-carousel{
+  width: 100%;
+}
+.detail-msg{
+  display: flex;
+}
+.detail-name{
+  width: 70%;
+  font-size: 30rpx;
+  padding:10rpx 20rpx;
+}
+.like-number{
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  flex-direction:column;
+}
+.detail-price{
+  margin: 20rpx 0;
+  color: #f00;
+  padding-left: 2%;
+  font-size: 46rpx;
+}
+.market-price{
+  text-decoration: line-through;
+  color: #bbb;
+  font-size: 32rpx;
+}
+.detail-operate{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  display:flex;
+}
+.detail-operate>view{
+  flex-grow: 1;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 8rpx;
+}
+.detail-operate>view:first-child{
+  background: #ffc23f;
+}
+.detail-operate>view:last-child{
+  background: #fc4e4e;
+}

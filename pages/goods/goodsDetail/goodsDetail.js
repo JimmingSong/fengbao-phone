@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    goodsData: {}
   },
 
   /**
@@ -15,6 +15,11 @@ Page({
   onLoad: function (options) {
     console.log(options);
     T.searchGoodsById(options).then(res => {
+      if(res.success){
+        this.setData({
+          goodsData: res.value[0]
+        });
+      }
       console.log(res);
     })
   },
