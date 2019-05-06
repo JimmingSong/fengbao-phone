@@ -45,6 +45,9 @@ App({
   },
   onShow(){
   },
+  setCustomerData(data){
+    this.globalData.userInfo = data;
+  },
   globalData: {
     userInfo: null,
     appId: ''

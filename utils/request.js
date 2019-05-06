@@ -20,7 +20,7 @@ function ajax(url, data, method = 'POST',header = {}) {
               url: '../../user/login/login',
             });
           } else {
-            resolve(res);
+            resolve(data);
           }
         }
       },
@@ -73,5 +73,16 @@ module.exports = {
   },
   searchGoodsById(data){
     return ajax('/goods/searchGoodsById', data);
+  },
+  /**
+   * 收藏
+   * data: {
+   *  like:boolean 操作类型
+   *  update: '' 当前操作用户
+   *  id: 商品ID
+   * }
+   */
+  collectionGoods(data){
+    return ajax('/goods/updateLike', data);
   }
 }

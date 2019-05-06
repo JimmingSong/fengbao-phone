@@ -87,8 +87,11 @@ Page({
     console.log(e);
     if (data.errMsg === 'getUserInfo:ok'){
       let userInfo = data.userInfo;
+      console.log(data);
       T.customerLogin({ encryptedData: data.encryptedData, userInfo, iv: data.iv, appSession: App.globalData.appId}).then(res => {
         if(res.success){
+          App.setCustomerData(res.value);
+          wx.setStorageSync('userInfo', JSON.stringify(res.value));
           wx.setStorageSync('sessionId', res.sessionId);
           wx.switchTab({
             url: '../../goods/newPhoneList/newPhoneList',

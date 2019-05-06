@@ -1,12 +1,14 @@
 // pages/goods/goodsDetail/goodsDetail.js
 import T from '../../../utils/request.js';
+const App = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    goodsData: {}
+    goodsData: {},
+    like_icon: 'icon-collection'
   },
 
   /**
@@ -14,13 +16,23 @@ Page({
    */
   onLoad: function (options) {
     console.log(options);
-    T.searchGoodsById(options).then(res => {
+    let userInfo = JSON.parse(wx.getStorageSync('userInfo'));
+    let data = {
+      customerId: userInfo._id,
+      ...options
+    }
+    T.searchGoodsById(data).then(res => {
       if(res.success){
+        let resData = res.value[0];
+        if(resData.collection){
+          this.setData({
+            like_icon: 'icon-collection_fill'
+          })
+        }
         this.setData({
-          goodsData: res.value[0]
+          goodsData: resData
         });
       }
-      console.log(res);
     })
   },
 
@@ -71,5 +83,34 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  /**
+   * 收藏/取消收藏 事件
+   */
+  collection(){
+    // let userInfo = App.globalData.userInfo;
+    let userInfo = JSON.parse(wx.getStorageSync('userInfo'));
+    let data = {
+      like: 'cancel', // add 收藏 cancel 取消收藏
+      update: userInfo._id,
+      id: this.data.goodsData._id
+    }
+    if (this.data.like_icon === 'icon-collection'){
+      data.like = 'add'
+    }
+    T.collectionGoods(data).then(res => {
+      console.log(res);
+      if(res.success){
+        if (data.like === 'add') {
+          this.setData({
+            like_icon: 'icon-collection_fill'
+          })
+        }else{
+          this.setData({
+            like_icon: 'icon-collection'
+          })
+        }
+      }
+    })
   }
 })

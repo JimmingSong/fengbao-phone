@@ -5,8 +5,8 @@
   </view>
   <view class='detail-msg'>
       <view class='detail-name'>{{goodsData.productName}}</view>
-      <view class='like-number'>
-        <text class='iconfont icon-collection'></text>
+      <view class='like-number' catchtap='collection'>
+        <text class='iconfont {{like_icon}}'></text>
         <text>{{goodsData.like}}</text>
       </view>
   </view>
