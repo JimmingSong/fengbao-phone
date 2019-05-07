@@ -90,6 +90,7 @@ Page({
   collection(){
     // let userInfo = App.globalData.userInfo;
     let userInfo = JSON.parse(wx.getStorageSync('userInfo'));
+    let goodsData = this.data.goodsData;
     let data = {
       like: 'cancel', // add 收藏 cancel 取消收藏
       update: userInfo._id,
@@ -102,12 +103,16 @@ Page({
       console.log(res);
       if(res.success){
         if (data.like === 'add') {
+          goodsData.like++;
           this.setData({
-            like_icon: 'icon-collection_fill'
+            like_icon: 'icon-collection_fill',
+            goodsData,
           })
         }else{
+          goodsData.like--;
           this.setData({
-            like_icon: 'icon-collection'
+            like_icon: 'icon-collection',
+            goodsData
           })
         }
       }
