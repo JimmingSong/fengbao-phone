@@ -84,5 +84,17 @@ module.exports = {
    */
   collectionGoods(data){
     return ajax('/goods/updateLike', data);
+  },
+  /**
+   * 加入购物车
+   */
+  addToCar(data){
+    return ajax('/car/addToCar', data)
+  },
+  /**
+   * 查找购物车
+   */
+  findToCar(data){
+    return ajax('/car/findToCar', data);
   }
 }

@@ -1,0 +1,55 @@
+<!--pages/goods/shoppingCar/shoppingCar.wxml-->
+<view class='car'>
+  <view class='car-msg'>
+    <view>
+      <view>购物车</view>
+      <view>共计{{goodsData.length}}件商品</view>
+    </view>
+    <view>
+      管理
+    </view>
+  </view>
+
+  <view class='onlinechoose'>
+    <view class='hotel_list flex_center' wx:for="{{goodsData}}" wx:key="items" wx:for-item="i" data-id="{{index}}" bindtap='select'>
+      <view class='list_cons flex_start'>
+        <view wx:if="{{management_good}}" class='lefts'>
+          <block wx-if="{{!i.checked}}">
+            <view class='icon_none'></view>
+          </block>
+          <block wx-if="{{i.checked}}">
+            <icon type="success" size="30" color="red" />
+          </block>
+        </view>
+        <image src='http://{{i.productImg}}'></image>
+        <view class='right'>
+          <view class='name'>
+            {{i.name}}
+          </view>
+          <view class='list1 flex_between'>
+            <view class='left'>
+              <view class='condition1'>
+                16㎡|双人床|含早
+              </view>
+              <view class='condition2'>
+                <block>
+                  间数：10
+                </block>
+                <block>
+                  间数：2
+                </block>
+              </view>
+            </view>
+          </view>
+          <view class='list1 flex_between'>
+            <view class='left'>
+              <view class='condition2'>
+                类目一
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

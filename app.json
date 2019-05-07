@@ -9,7 +9,8 @@
     "pages/user/manage/manage",
     "pages/user/adress/adress",
     "pages/user/editAddress/editAddress",
-    "pages/user/message/message"
+    "pages/user/message/message",
+    "pages/goods/shoppingCar/shoppingCar"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -27,7 +28,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/goods/newPhoneList/newPhoneList",
+        "pagePath": "pages/goods/shoppingCar/shoppingCar",
         "iconPath": "./utils/image/tabBar/caigou-xianxing-d.png",
         "selectedIconPath": "./utils/image/tabBar/caigou-xianxing.png",
         "text": "购物车"

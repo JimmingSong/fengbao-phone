@@ -117,5 +117,15 @@ Page({
         }
       }
     })
+  },
+  addToCar(){
+    let userInfo = JSON.parse(wx.getStorageSync('userInfo'));
+    let data = {
+      id: userInfo._id,
+      goodsId: this.data.goodsData._id
+    }
+    T.addToCar(data).then(res => {
+      console.log(res);
+    })
   }
 })
