@@ -5,7 +5,7 @@
       <view>购物车</view>
       <view>共计{{goodsData.length}}件商品</view>
     </view>
-    <view>
+    <view bindtap='clearShopCar'>
       管理
     </view>
   </view>

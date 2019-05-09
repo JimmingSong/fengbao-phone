@@ -4,6 +4,7 @@
 }
 .detail-carousel{
   width: 100%;
+  text-align: center;
 }
 .detail-msg{
   display: flex;
@@ -31,6 +32,9 @@
   text-decoration: line-through;
   color: #bbb;
   font-size: 32rpx;
+}
+.detail-img>view{
+  text-align: center;
 }
 .detail-operate{
   position:fixed;

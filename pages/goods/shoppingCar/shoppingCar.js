@@ -71,5 +71,13 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  /**
+   * 清空购物车  删除所有商品
+   */
+  clearShopCar(){
+    T.clearShopCar().then(res => {
+      console.log(res);
+    })
   }
 })
