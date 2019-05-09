@@ -44,6 +44,9 @@
   font-weight: 700;
   letter-spacing: 3rpx;
   margin-bottom: 20rpx;
+  overflow:hidden;
+  text-overflow:ellipse;
+  word-wrap:nowrap;
 }
 .list_cons .right .list1{
     margin-bottom: 17rpx;

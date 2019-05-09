@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goodsData: []
+    goodsData: [],
+    management_good: true
   },
 
   /**

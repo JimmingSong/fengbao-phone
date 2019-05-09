@@ -24,27 +24,14 @@
         <image src='http://{{i.productImg}}'></image>
         <view class='right'>
           <view class='name'>
-            {{i.name}}
-          </view>
-          <view class='list1 flex_between'>
-            <view class='left'>
-              <view class='condition1'>
-                16㎡|双人床|含早
-              </view>
-              <view class='condition2'>
-                <block>
-                  间数：10
-                </block>
-                <block>
-                  间数：2
-                </block>
-              </view>
-            </view>
+            {{i.productName}}
           </view>
           <view class='list1 flex_between'>
             <view class='left'>
               <view class='condition2'>
-                类目一
+                <block>
+                  数量：{{i.quality}}
+                </block>
               </view>
             </view>
           </view>
