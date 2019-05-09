@@ -84,7 +84,6 @@ Page({
       atr: 'address',
       data: value
     }
-    debugger;
     if(this.data.add){
       data.index = this.data.defaultData.index;
     } else {
