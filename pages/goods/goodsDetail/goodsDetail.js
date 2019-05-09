@@ -15,25 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
-    let userInfo = JSON.parse(wx.getStorageSync('userInfo'));
-    let data = {
-      customerId: userInfo._id,
-      ...options
-    }
-    T.searchGoodsById(data).then(res => {
-      if(res.success){
-        let resData = res.value[0];
-        if(resData.collection){
-          this.setData({
-            like_icon: 'icon-collection_fill'
-          })
-        }
-        this.setData({
-          goodsData: resData
-        });
-      }
-    })
+    this.searchDetail(options);
   },
 
   /**
@@ -85,6 +67,30 @@ Page({
 
   },
   /**
+   * 查询详细数据
+   */
+  searchDetail(options){
+    console.log(options);
+    let userInfo = JSON.parse(wx.getStorageSync('userInfo'));
+    let data = {
+      customerId: userInfo._id,
+      ...options
+    }
+    T.searchGoodsById(data).then(res => {
+      if (res.success) {
+        let resData = res.value[0];
+        if (resData.collection) {
+          this.setData({
+            like_icon: 'icon-collection_fill'
+          })
+        }
+        this.setData({
+          goodsData: resData
+        });
+      }
+    })
+  },
+  /**
    * 收藏/取消收藏 事件
    */
   collection(){
@@ -126,6 +132,16 @@ Page({
     }
     T.addToCar(data).then(res => {
       console.log(res);
+      if(res.success){
+        wx.showToast({
+          title: '加入购物车成功',
+        })
+      } else {
+        wx.showToast({
+          title: '加入购物车失败',
+          icon: 'error'
+        })
+      }
     })
   }
 })
