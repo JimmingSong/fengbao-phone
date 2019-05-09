@@ -96,5 +96,11 @@ module.exports = {
    */
   findToCar(data){
     return ajax('/car/findToCar', data);
+  },
+  /**
+   * 清空购物车  删除所有商品
+   */
+  clearShopCar(data){
+    return ajax('/car/clearToCar', data);
   }
 }
