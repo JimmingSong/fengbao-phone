@@ -80,5 +80,11 @@ Page({
     T.clearShopCar().then(res => {
       console.log(res);
     })
+  },
+  addShopCar(){
+    let {_id} = this.data.goodsData;
+    T.addAndDelShopCar({goodsId:_id}).then(res=>{
+      console.log(res);
+    });
   }
 })

@@ -102,5 +102,11 @@ module.exports = {
    */
   clearShopCar(data){
     return ajax('/car/clearToCar', data);
+  },
+  /**
+   * 加/减 购物车中的数量
+   */
+  addAndDelShopCar(data){
+    return ajax('/car/qualityUpdate', data);
   }
 }
