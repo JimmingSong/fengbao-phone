@@ -7,7 +7,9 @@ Page({
    */
   data: {
     goodsData: [],
-    management_good: true
+    management_good: true,
+    price: 0,
+    selGoods: [],
   },
 
   /**
@@ -28,16 +30,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.calculatePrice();
-    let userInfo = JSON.parse(wx.getStorageSync('userInfo'));
-    T.findToCar({id: userInfo._id}).then(res => {
-      console.log(res);
-      if(res.success){
-        this.setData({
-          goodsData: res.value
-        });
-      }
-    })
+    this.initData();
+    this.find_goods_list();
   },
 
   /**
@@ -75,6 +69,31 @@ Page({
 
   },
   /**
+   * 加载默认数据
+   */
+  initData(){
+    this.setData({
+      selGoods: []
+    })
+  },
+  /**
+   * 查找商品列表
+   */
+  find_goods_list(){
+    T.findToCar().then(res => {
+      console.log(res);
+      if (res.success) {
+        let dealData = res.value.map(item => {
+          item.checked = false;
+          return item;
+        });
+        this.setData({
+          goodsData: dealData
+        });
+      }
+    })
+  },
+  /**
    * 清空购物车  删除所有商品
    */
   clearShopCar(){
@@ -100,9 +119,26 @@ Page({
     let { _id } = this.data.goodsData[index];
     this.managerQuality(_id, index, 'reduce');
   },
+  /**
+   * 计算价格
+   */
   calculatePrice(){
-    T.calculatePrice().then(res => {
-      console.log(res);
+    let selGoods = this.data.selGoods;
+    let goods = selGoods.map(item => {
+      return {
+        id: item.goods._id,
+        quality: item.goods.quality
+      }
+    });
+    let data = {
+      goods
+    };
+    T.calculatePrice(data).then(res => {
+      if (res.success) {
+        this.setData({
+          price: res.data
+        })
+      }
     })
   },
   /**
@@ -110,6 +146,15 @@ Page({
    */
   managerQuality(id, index, type='add'){
     let modify = this.data.goodsData;
+    if (type === 'reduce') {
+      if (modify[index].quality <= 1) {
+        wx.showToast({
+          title: '不能再减了啦',
+          icon: 'none'
+        });
+        return;
+      }
+    }
     T.addAndDelShopCar({ goodsId: id, type: type}).then(res => {
       console.log(res);
       if (res.success) {
@@ -120,8 +165,80 @@ Page({
         }
         this.setData({
           goodsData: modify
-        })
+        });
+        this.calculatePrice();
       }
     });
-  }
+  },
+  /**
+   * 选择购买
+   */
+  checkGoods(e){
+    let goodsData = this.data.goodsData;
+    let index = e.currentTarget.dataset.index;
+    this.updateGoodsData(index, true);
+  },
+  /**
+   * 取消购买
+   */
+  cancelCheck(e){
+    let goodsData = this.data.goodsData;
+    let index = e.currentTarget.dataset.index;
+    this.updateGoodsData(index, false);
+  },
+  /**
+   * 全选事件
+   */
+  selAll(){
+    let goodsData = this.data.goodsData;
+    let selGoods = goodsData.map((item,index) => {
+      goodsData[index].checked = true;
+      return {
+        index: index,
+        goods: item
+      }
+    });
+    this.setData({
+      selGoods,
+      goodsData: goodsData
+    });
+    this.calculatePrice()
+  },
+  /**
+   * 取消选择所有
+   */
+  cancelAll(){
+    let goodsData = this.data.goodsData;
+    goodsData.forEach(item => {
+      item.checked = false;
+    });
+    this.setData({
+      selGoods: [],
+      goodsData
+    });
+    this.calculatePrice()
+  },
+  /**
+   * 更新数据的选择状态
+   */
+  updateGoodsData(index, bool){
+    let goodsData = this.data.goodsData;
+    let selGoods = this.data.selGoods;
+    goodsData[index].checked = bool;
+    // 判断是加入计算列表还是从计算列表删除
+    if (bool) {
+      selGoods.push({index, goods: goodsData[index]});
+    } else {
+      selGoods.forEach((item,dex) => {
+        if (item.index === index) {
+          selGoods.splice(dex, 1);
+        }
+      })
+    }
+    this.setData({
+      goodsData,
+      selGoods
+    });
+    this.calculatePrice()
+  },
 })

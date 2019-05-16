@@ -1,4 +1,7 @@
 /* pages/goods/shoppingCar/shoppingCar.wxss */
+.car{
+  padding-bottom: 100rpx;
+}
 .car-msg{
   display: flex;
   justify-content: space-between;
@@ -16,7 +19,7 @@
   border-bottom: 1rpx solid #d6d6d6;
   background-color: #ffffff;
 }
-.onlinechoose .hotel_list .icon_none{
+.onlinechoose .hotel_list .icon_none, .calculate .icon_none{
   width: 60rpx;
   height: 60rpx;
   border: 1rpx solid #d6d6d6;
@@ -134,4 +137,39 @@
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
   box-sizing: border-box;
+}
+
+
+.calculate{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top:1px solid #ddd;
+  box-shadow:0 0 9px #000;
+  background: #fff;
+}
+.calculate .lefts{
+  margin-left: 20rpx;
+}
+.show-price{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 55%;
+  height: 100%;
+  margin-right: 20rpx;
+}
+
+.go-bill{
+  width:150rpx;
+  height:70rpx;
+  line-height: 70rpx;
+  background:#108387;
+  border-radius:35rpx;
+  text-align:center;
+  color:#fff;
 }

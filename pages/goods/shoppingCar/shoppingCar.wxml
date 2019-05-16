@@ -15,10 +15,10 @@
       <view class='list_cons flex_start'>
         <view wx:if="{{management_good}}" class='lefts'>
           <block wx-if="{{!i.checked}}">
-            <view class='icon_none'></view>
+            <view class='icon_none' data-index='{{index}}' bindtap='checkGoods'></view>
           </block>
           <block wx-if="{{i.checked}}">
-            <icon type="success" size="30" color="red" />
+            <icon type="success" size="30" color="#108387" data-index='{{index}}' bindtap='cancelCheck' />
           </block>
         </view>
         <image src='http://{{i.productImg}}'></image>
@@ -40,6 +40,22 @@
           </view>
         </view>
       </view>
+    </view>
+  </view>
+  <view class='calculate'>
+    <view class='lefts'>
+      <block wx-if="{{selGoods.length < goodsData.length}}">
+        <view class='icon_none' bindtap='selAll'></view>
+      </block>
+      <block wx-if="{{selGoods.length === goodsData.length}}">
+        <icon type="success" size="30" color="#108387" bindtap='cancelAll' />
+      </block>
+    </view>
+    <view class='show-price'>
+      <view>
+        合计: ￥{{price}}
+      </view>
+      <view class='go-bill'>结算</view>
     </view>
   </view>
 </view>
