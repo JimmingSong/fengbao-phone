@@ -53,7 +53,7 @@
   -webkit-box-orient: vertical;
 }
 .list_cons .right .list1{
-    margin-bottom: 17rpx;
+  margin-bottom: 17rpx;
 }
 .list_cons .right .list1 .condition1{
   font-size: 28rpx;
@@ -61,8 +61,11 @@
   margin-bottom: 15rpx;
 }
 .list_cons .right .list1 .condition2{
-  font-size: 24rpx;
+  font-size: 30rpx;
   color: #999999;
+}
+.list_cons .right .list1 .left{
+  display: flex;
 }
 .list_cons .right .list1 .act{
   color: #2d8622;

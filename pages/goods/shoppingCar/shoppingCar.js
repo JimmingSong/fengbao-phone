@@ -28,6 +28,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.calculatePrice();
     let userInfo = JSON.parse(wx.getStorageSync('userInfo'));
     T.findToCar({id: userInfo._id}).then(res => {
       console.log(res);
@@ -81,10 +82,46 @@ Page({
       console.log(res);
     })
   },
-  addShopCar(){
-    let {_id} = this.data.goodsData;
-    T.addAndDelShopCar({goodsId:_id}).then(res=>{
+  /**
+   * 加数量
+   */
+  addQuality(e){
+    console.log(e);
+    let index = e.currentTarget.dataset.index;
+    let {_id} = this.data.goodsData[index];
+    this.managerQuality(_id, index);
+  },
+  /**
+   * 减数量
+   */
+  reduceQuality(e){
+    console.log(e);
+    let index = e.currentTarget.dataset.index;
+    let { _id } = this.data.goodsData[index];
+    this.managerQuality(_id, index, 'reduce');
+  },
+  calculatePrice(){
+    T.calculatePrice().then(res => {
       console.log(res);
+    })
+  },
+  /**
+   * 发送数量更新请求
+   */
+  managerQuality(id, index, type='add'){
+    let modify = this.data.goodsData;
+    T.addAndDelShopCar({ goodsId: id, type: type}).then(res => {
+      console.log(res);
+      if (res.success) {
+        if(type === 'reduce'){
+          modify[index].quality -= 1;
+        } else {
+          modify[index].quality += 1;
+        }
+        this.setData({
+          goodsData: modify
+        })
+      }
     });
   }
 })

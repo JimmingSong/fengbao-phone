@@ -108,5 +108,11 @@ module.exports = {
    */
   addAndDelShopCar(data){
     return ajax('/car/qualityUpdate', data);
+  },
+  /**
+   * 计算购物车中商品价格
+   */
+  calculatePrice(data) {
+    return ajax('/car/calculate', data, 'get')
   }
 }

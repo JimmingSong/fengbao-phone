@@ -32,9 +32,9 @@
                 价格：{{i.productPrice}}
               </view>
               <view class='quality-manager'>
-                <text class='quality-ope'>-</text>
+                <text class='quality-ope' data-index='{{index}}' bindtap='reduceQuality'>-</text>
                 <text class='quality-num'>{{i.quality}}</text>
-                <text class='quality-ope' bindtap='addShopCar'>+</text>
+                <text class='quality-ope' data-index='{{index}}' bindtap='addQuality'>+</text>
               </view>
             </view>
           </view>
