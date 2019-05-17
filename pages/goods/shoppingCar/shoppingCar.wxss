@@ -18,6 +18,7 @@
   height: 260rpx;
   border-bottom: 1rpx solid #d6d6d6;
   background-color: #ffffff;
+  overflow: hidden;
 }
 .onlinechoose .hotel_list .icon_none, .calculate .icon_none{
   width: 60rpx;
@@ -26,7 +27,7 @@
   border-radius: 50%;
 }
 .onlinechoose .hotel_list .list_cons{
-  width: 700rpx;
+  width: 750rpx;
   height: 200rpx;
 }
 .onlinechoose .list_cons .lefts{
@@ -153,6 +154,8 @@
   background: #fff;
 }
 .calculate .lefts{
+  display: flex;
+  align-items: center;
   margin-left: 20rpx;
 }
 .show-price{
@@ -164,7 +167,7 @@
   margin-right: 20rpx;
 }
 
-.go-bill{
+.go-bill, .delete{
   width:150rpx;
   height:70rpx;
   line-height: 70rpx;
@@ -172,4 +175,7 @@
   border-radius:35rpx;
   text-align:center;
   color:#fff;
+}
+.delete{
+  background: red
 }

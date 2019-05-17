@@ -5,20 +5,27 @@
       <view>购物车</view>
       <view>共计{{goodsData.length}}件商品</view>
     </view>
-    <view bindtap='clearShopCar'>
-      管理
-    </view>
+    <block wx-if='{{!del}}'>
+      <view bindtap='delModal'>
+        管理
+      </view>
+    </block>
+    <block wx-if='{{del}}'>
+      <view bindtap='selModal'>
+        完成
+      </view>
+    </block>
   </view>
 
   <view class='onlinechoose'>
-    <view class='hotel_list flex_center' wx:for="{{goodsData}}" wx:key="items" wx:for-item="i" data-id="{{index}}" bindtap='select'>
+    <view class='hotel_list flex_center' wx:for="{{goodsData}}" wx:key="items" wx:for-item="i" data-id="{{index}}">
       <view class='list_cons flex_start'>
         <view wx:if="{{management_good}}" class='lefts'>
           <block wx-if="{{!i.checked}}">
             <view class='icon_none' data-index='{{index}}' bindtap='checkGoods'></view>
           </block>
           <block wx-if="{{i.checked}}">
-            <icon type="success" size="30" color="#108387" data-index='{{index}}' bindtap='cancelCheck' />
+            <icon type="success" size="30" color="{{del?'red': '#108387'}}" data-index='{{index}}' bindtap='cancelCheck' />
           </block>
         </view>
         <image src='http://{{i.productImg}}'></image>
@@ -44,14 +51,17 @@
   </view>
   <view class='calculate'>
     <view class='lefts'>
-      <block wx-if="{{selGoods.length < goodsData.length}}">
-        <view class='icon_none' bindtap='selAll'></view>
+      <block wx-if="{{!del && selGoods.length < goodsData.length}}">
+        <view class='icon_none' bindtap='selAll'></view>全选
       </block>
-      <block wx-if="{{selGoods.length === goodsData.length}}">
-        <icon type="success" size="30" color="#108387" bindtap='cancelAll' />
+      <block wx-if="{{!del && selGoods.length === goodsData.length}}">
+        <icon type="success" size="30" color="#108387" bindtap='cancelAll' />全选
+      </block>
+      <block wx-if='{{del}}'>
+        <view class='delete' bindtap='deleteGoods'>删除</view>
       </block>
     </view>
-    <view class='show-price'>
+    <view class='show-price' wx-if='{{!del}}'>
       <view>
         合计: ￥{{price}}
       </view>

@@ -8,8 +8,10 @@ Page({
   data: {
     goodsData: [],
     management_good: true,
+    del: false,
     price: 0,
-    selGoods: [],
+    selGoods: [],// 结算的数据
+    delGoods: [], //删除的数据
   },
 
   /**
@@ -96,8 +98,8 @@ Page({
   /**
    * 清空购物车  删除所有商品
    */
-  clearShopCar(){
-    T.clearShopCar().then(res => {
+  clearShopCar(data){
+    T.clearShopCar(data).then(res => {
       console.log(res);
     })
   },
@@ -176,7 +178,12 @@ Page({
   checkGoods(e){
     let goodsData = this.data.goodsData;
     let index = e.currentTarget.dataset.index;
-    this.updateGoodsData(index, true);
+    let {del} = this.data;
+    if(del) {
+      this.updateGoodsDelSta(index, true);
+    } else {
+      this.updateGoodsData(index, true);
+    }
   },
   /**
    * 取消购买
@@ -184,7 +191,12 @@ Page({
   cancelCheck(e){
     let goodsData = this.data.goodsData;
     let index = e.currentTarget.dataset.index;
-    this.updateGoodsData(index, false);
+    let {del} = this.data;
+    if(del) {
+      this.updateGoodsDelSta(index, false);
+    } else {
+      this.updateGoodsData(index, false);
+    }
   },
   /**
    * 全选事件
@@ -241,4 +253,66 @@ Page({
     });
     this.calculatePrice()
   },
+  /**
+   * 切换全选与删除状态
+   */
+  delModal(){
+    let goodsData = this.data.goodsData;
+    goodsData.forEach(item => {
+      item.checked = false;
+      return item;
+    });
+    this.setData({
+      del: true,
+      goodsData,
+      selGoods: [],
+      price: 0
+    })
+  },
+  /**
+   * 选择 结算模式
+   */
+  selModal(){
+    let goodsData = this.data.goodsData;
+    goodsData.forEach(item => {
+      item.checked = false;
+      return item;
+    });
+    this.setData({
+      del: false,
+      delGoods: [],
+      goodsData,
+      price: 0
+    })
+  },
+  /**
+   * 更新数据的 删除 状态
+   */
+  updateGoodsDelSta(index, bool){
+    let goodsData = this.data.goodsData;
+    let delGoods = this.data.delGoods;
+    goodsData[index].checked = bool;
+    // 判断是加入计算列表还是从计算列表删除
+    if (bool) {
+      delGoods.push({ index, goods: goodsData[index] });
+    } else {
+      delGoods.forEach((item, dex) => {
+        if (item.index === index) {
+          delGoods.splice(dex, 1);
+        }
+      })
+    }
+    this.setData({
+      goodsData,
+      delGoods
+    });
+  },
+  deleteGoods(){
+    let delGoods = this.data.delGoods;
+    let idArr = delGoods.map(item => item.goods._id);
+    console.log(idArr);
+    T.clearShopCar({id: idArr}).then(res => {
+      console.log(res);
+    })
+  }
 })
