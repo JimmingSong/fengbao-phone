@@ -313,6 +313,9 @@ Page({
     console.log(idArr);
     T.clearShopCar({id: idArr}).then(res => {
       console.log(res);
+      if(res.success){
+        this.find_goods_list();
+      }
     })
   }
 })
