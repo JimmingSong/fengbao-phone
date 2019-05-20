@@ -1,0 +1,17 @@
+<!--pages/goods/settleAccounts/settleAccounts.wxml-->
+<view class='bill'>
+  <view class='bill-add'>
+    <view class='add-icon'>
+      <text class='iconfont icon-coordinates_fill'></text>
+    </view>
+    <view class='add-msg'>
+      <view class='add-name'>
+        <text>{{current.name}}</text>
+        <text>{{current.phone}}</text>
+      </view>
+      <view class='add-detail'>
+        {{current.address}}
+      </view>
+    </view>
+  </view>
+</view>

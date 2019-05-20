@@ -68,7 +68,7 @@
       <view>
         合计: ￥{{price}}
       </view>
-      <view class='go-bill'>结算</view>
+      <view class='go-bill' bindtap='jumpTo'>结算</view>
     </view>
   </view>
 </view>

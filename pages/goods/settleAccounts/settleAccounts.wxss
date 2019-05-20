@@ -1,0 +1,14 @@
+/* pages/goods/settleAccounts/settleAccounts.wxss */
+.bill {
+
+}
+.bill-add {
+  display: flex;
+}
+.bill-add .add-icon .iconfont{
+  font-size: 70rpx;
+  color: #108387;
+}
+.bill-add .add-name {
+  color: #494c4d;
+}

@@ -361,5 +361,10 @@ Page({
         this.find_goods_list();
       }
     })
+  },
+  jumpTo(){
+    wx.navigateTo({
+      url: '../settleAccounts/settleAccounts',
+    })
   }
 })

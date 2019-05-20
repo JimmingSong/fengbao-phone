@@ -114,5 +114,11 @@ module.exports = {
    */
   calculatePrice(data) {
     return ajax('/car/calculate', data)
+  },
+  /**
+   * 查找用户收货地址
+   */
+  findAddress(data) {
+    return ajax('/user/address', data);
   }
 }
