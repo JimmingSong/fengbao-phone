@@ -20,7 +20,7 @@
   <view class='onlinechoose'>
     <view class='hotel_list flex_center' wx:for="{{goodsData}}" wx:key="items" wx:for-item="i" data-id="{{index}}">
       <view class='list_cons flex_start'>
-        <view wx:if="{{management_good}}" class='lefts'>
+        <view class='lefts'>
           <block wx-if="{{!i.checked}}">
             <view class='icon_none' data-index='{{index}}' bindtap='checkGoods'></view>
           </block>
@@ -51,15 +51,18 @@
   </view>
   <view class='calculate'>
     <view class='lefts'>
-      <block wx-if="{{!del && selGoods.length < goodsData.length}}">
+      <block wx-if="{{!del && (goodsData.length === 0 || selGoods.length < goodsData.length)}}">
         <view class='icon_none' bindtap='selAll'></view>全选
       </block>
-      <block wx-if="{{!del && selGoods.length === goodsData.length}}">
+      <block wx-if="{{!del && goodsData.length > 0 &&  selGoods.length === goodsData.length}}">
         <icon type="success" size="30" color="#108387" bindtap='cancelAll' />全选
       </block>
       <block wx-if='{{del}}'>
         <view class='delete' bindtap='deleteGoods'>删除</view>
       </block>
+    </view>
+    <view class='show-clear' wx-if='{{del}}'>
+      <view class='go-bill' bindtap='clearShopCar'>清空</view>
     </view>
     <view class='show-price' wx-if='{{!del}}'>
       <view>

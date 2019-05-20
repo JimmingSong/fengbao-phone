@@ -75,7 +75,11 @@ Page({
    */
   initData(){
     this.setData({
-      selGoods: []
+      selGoods: [],
+      del: false,
+      price: 0,
+      selGoods: [],// 结算的数据
+      delGoods: [], //删除的数据
     })
   },
   /**
@@ -99,8 +103,27 @@ Page({
    * 清空购物车  删除所有商品
    */
   clearShopCar(data){
-    T.clearShopCar(data).then(res => {
-      console.log(res);
+    wx.showModal({
+      title: '清空购物车',
+      content: '您确定要清空购物车吗?',
+      success: (res) => {
+        if(res.confirm){
+          T.clearShopCar(data).then(res => {
+            console.log(res);
+            if (res.success) {
+              wx.showToast({
+                title: '清空购物车成功',
+              });
+              this.find_goods_list();
+            } else {
+              wx.showToast({
+                title: '操作失败,请稍后再试!',
+                icon: 'error'
+              })
+            }
+          })
+        }
+      }
     })
   },
   /**
@@ -307,13 +330,34 @@ Page({
       delGoods
     });
   },
+  /**
+   * 删除按钮点击事件
+   */
   deleteGoods(){
+    wx.showModal({
+      title: '确定从购物车中清除当前选择商品',
+      content: '',
+      success: (res) => {
+        if(res.confirm){
+          this.deleteFromCar();
+        };
+      },
+      fail: () => {
+        console.log('fail')
+      }
+    })
+    
+  },
+  /**
+   * 从购物车中移除商品请求
+   */
+  deleteFromCar(){
     let delGoods = this.data.delGoods;
     let idArr = delGoods.map(item => item.goods._id);
     console.log(idArr);
-    T.clearShopCar({id: idArr}).then(res => {
+    T.clearShopCar({ id: idArr }).then(res => {
       console.log(res);
-      if(res.success){
+      if (res.success) {
         this.find_goods_list();
       }
     })

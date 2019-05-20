@@ -5,6 +5,9 @@
 .car-msg{
   display: flex;
   justify-content: space-between;
+  padding: 20rpx 40rpx;
+  background: #108387;
+  color: #fff;
 }
 
 .onlinechoose{
@@ -158,7 +161,7 @@
   align-items: center;
   margin-left: 20rpx;
 }
-.show-price{
+.show-price, .show-clear{
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -178,4 +181,8 @@
 }
 .delete{
   background: red
+}
+
+.show-clear{
+  width: auto;
 }

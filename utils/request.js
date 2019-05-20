@@ -95,7 +95,7 @@ module.exports = {
    * 查找购物车
    */
   findToCar(data){
-    return ajax('/car/findToCar', data);
+    return ajax('/car/findToCar', data, 'get');
   },
   /**
    * 清空购物车  删除所有商品
