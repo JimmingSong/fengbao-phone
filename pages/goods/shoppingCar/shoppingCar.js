@@ -363,8 +363,13 @@ Page({
     })
   },
   jumpTo(){
-    wx.navigateTo({
-      url: '../settleAccounts/settleAccounts',
-    })
+    let {selGoods} = this.data;
+    if(selGoods.length > 0){
+      console.log(selGoods);
+      wx.setStorageSync('carArray',JSON.stringify(selGoods.map(item => item.goods._id)));
+      wx.navigateTo({
+        url: '../settleAccounts/settleAccounts',
+      })
+    }
   }
 })

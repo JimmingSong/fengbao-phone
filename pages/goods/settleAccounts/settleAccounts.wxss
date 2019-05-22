@@ -1,9 +1,22 @@
 /* pages/goods/settleAccounts/settleAccounts.wxss */
 .bill {
-
+  overflow: hidden;
+  padding: 15rpx 0;
 }
 .bill-add {
-  display: flex;
+  display:flex;
+  border:1px solid #ddd;
+  width:95%;
+  margin:0 auto;
+  border-radius:15rpx;
+  box-shadow:3rpx 3rpx 20rpx #aaa;
+  padding:10rpx 0;
+}
+.add-icon{
+  display:flex;
+  align-items:center;
+  width:100rpx;
+  justify-content:center;
 }
 .bill-add .add-icon .iconfont{
   font-size: 70rpx;
@@ -11,4 +24,10 @@
 }
 .bill-add .add-name {
   color: #494c4d;
+  margin-bottom: 15rpx;
+}
+.bill-add .add-name>text:last-child{
+  font-size: 26rpx;
+  color: #aaa;
+  margin-left: 20rpx
 }
