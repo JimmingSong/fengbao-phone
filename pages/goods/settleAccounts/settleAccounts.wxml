@@ -14,4 +14,8 @@
       </view>
     </view>
   </view>
+  <view class='bill-goods'>
+    <view wx:for='{{idList}}'>{{item}}
+    </view>
+  </view>
 </view>

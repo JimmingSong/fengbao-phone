@@ -1,7 +1,9 @@
 /* pages/goods/settleAccounts/settleAccounts.wxss */
 .bill {
+  height: 100vh;
   overflow: hidden;
   padding: 15rpx 0;
+  background: #eee;
 }
 .bill-add {
   display:flex;
@@ -9,8 +11,9 @@
   width:95%;
   margin:0 auto;
   border-radius:15rpx;
-  box-shadow:3rpx 3rpx 20rpx #aaa;
+  box-shadow:2rpx 2rpx 10rpx #aaa;
   padding:10rpx 0;
+  background: #fff;
 }
 .add-icon{
   display:flex;
