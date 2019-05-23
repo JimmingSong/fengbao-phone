@@ -15,7 +15,7 @@
     </view>
   </view>
   <view class='bill-goods'>
-    <view wx:for='{{idList}}'>{{item}}
+    <view wx:for='{{idList}}' wx:key='{{index}}'>{{item}}
     </view>
   </view>
 </view>
