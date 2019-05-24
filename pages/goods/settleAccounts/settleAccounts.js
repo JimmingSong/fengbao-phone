@@ -14,6 +14,8 @@ Page({
    */
   onLoad: function (options) {
     let idList = JSON.parse(wx.getStorageSync('carArray'));
+    console.log(idList);
+    this.searchGoodsById({ id: idList });
     this.setData({
       idList,
     })
@@ -23,7 +25,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
@@ -75,6 +77,11 @@ Page({
           current: cur
         })
       }
+      console.log(res);
+    })
+  },
+  searchGoodsById(data){
+    T.searchGoodsById(data).then(res => {
       console.log(res);
     })
   }
