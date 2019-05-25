@@ -72,7 +72,7 @@ Page({
       if(res.success){
         let cur = res.value[0];
         this.setData({
-          current: cur
+          shippingAddress: cur
         })
       }
       console.log(res);
@@ -89,6 +89,9 @@ Page({
       }
     })
   },
+  /**
+   * 计算
+   */
   calculatePrice(){
     let {goodsList} = this.data;
     let goods = goodsList.map(item => {
@@ -105,6 +108,27 @@ Page({
       if(res.success){
         this.setData({
           price: res.data
+        })
+      }
+    })
+  },
+  createBill(){
+    let { goodsList, shippingAddress} = this.data;
+    let goods = goodsList.map(item =>{return {id: item._id,quality: item.quality}});
+    let data = {
+      goods,
+      address: shippingAddress
+    }
+    T.createBil(data).then(res => {
+      if(res.success){
+        wx.showToast({
+          title: '出单成功',
+          icon: 'none'
+        })
+      } else {
+        wx.showToast({
+          title: '出单失败',
+          icon: 'none'
         })
       }
     })

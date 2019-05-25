@@ -120,5 +120,11 @@ module.exports = {
    */
   findAddress(data) {
     return ajax('/user/address', data);
+  },
+  /**
+   * 创建订单
+   */
+  createBil(data) {
+    return ajax('/bill/create', data)
   }
 }

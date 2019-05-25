@@ -6,11 +6,11 @@
     </view>
     <view class='add-msg'>
       <view class='add-name'>
-        <text>{{current.name}}</text>
-        <text>{{current.phone}}</text>
+        <text>{{shippingAddress.name}}</text>
+        <text>{{shippingAddress.phone}}</text>
       </view>
       <view class='add-detail'>
-        {{current.address}}
+        {{shippingAddress.address}}
       </view>
     </view>
   </view>
@@ -33,6 +33,6 @@
   <view class='sumit-bar'>
     <view class='submit-quality'>共{{quality}}件,</view>
     <view class='submit-price'>合计:<text>{{price}}</text></view>
-    <view class='btn-circle'>提交订单</view>
+    <view class='btn-circle' bindtap='createBill'>提交订单</view>
   </view>
 </view>
