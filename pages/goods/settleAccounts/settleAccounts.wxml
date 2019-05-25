@@ -15,7 +15,24 @@
     </view>
   </view>
   <view class='bill-goods'>
-    <view wx:for='{{idList}}' wx:key='{{index}}'>{{item}}
+    <view wx:for='{{goodsList}}' wx:key='{{index}}' class='bill-goods-item'>
+      <view class='bill-goods-img'>
+        <image src='http://{{item.productImg}}'></image>
+      </view>
+      <view class='bill-goods-msg'>
+        <view class='line2-ellipsis'>
+          {{item.productName}}
+        </view>
+      </view>
+      <view class='bill-goods-account'>
+        <view>￥{{item.productPrice}}</view>
+        <view class='goods-quality'>x{{item.quality}}</view>
+      </view>
     </view>
+  </view>
+  <view class='sumit-bar'>
+    <view class='submit-quality'>共{{quality}}件,</view>
+    <view class='submit-price'>合计:<text>{{price}}</text></view>
+    <view class='btn-circle'>提交订单</view>
   </view>
 </view>

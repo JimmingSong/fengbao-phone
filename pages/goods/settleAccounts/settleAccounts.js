@@ -6,7 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    idList: []
+    goodsList: [],
+    price: 0,
+    quality: 0
   },
 
   /**
@@ -14,11 +16,7 @@ Page({
    */
   onLoad: function (options) {
     let idList = JSON.parse(wx.getStorageSync('carArray'));
-    console.log(idList);
-    this.searchGoodsById({ id: idList });
-    this.setData({
-      idList,
-    })
+    this.searchGoodsById({ goodsId: idList });
   },
 
   /**
@@ -72,7 +70,7 @@ Page({
   findAddress() {
     T.findAddress().then(res => {
       if(res.success){
-        let cur = res.data[0];
+        let cur = res.value[0];
         this.setData({
           current: cur
         })
@@ -81,8 +79,34 @@ Page({
     })
   },
   searchGoodsById(data){
-    T.searchGoodsById(data).then(res => {
+    T.findToCar(data).then(res => {
+      if(res.success){
+        this.setData({
+          goodsList: res.value,
+          quality: res.value.map(item => item.quality).reduce((pre, next) => {return pre + next}, 0)
+        })
+        this.calculatePrice();
+      }
+    })
+  },
+  calculatePrice(){
+    let {goodsList} = this.data;
+    let goods = goodsList.map(item => {
+      return {
+        id: item._id,
+        quality: item.quality
+      }
+    })
+    let data = {
+      goods
+    }
+    T.calculatePrice(data).then(res => {
       console.log(res);
+      if(res.success){
+        this.setData({
+          price: res.data
+        })
+      }
     })
   }
 })
