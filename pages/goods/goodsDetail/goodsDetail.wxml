@@ -18,6 +18,6 @@
   </view>
   <view class='detail-operate'>
     <view class='car' bindtap='addToCar'>加入购物车</view>
-    <view class='buy'>立即购买</view>
+    <view class='buy' bindtap='goToBuy'>立即购买</view>
   </view>
 </view>

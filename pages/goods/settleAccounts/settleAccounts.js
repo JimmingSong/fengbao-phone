@@ -121,9 +121,24 @@ Page({
     }
     T.createBil(data).then(res => {
       if(res.success){
-        wx.showToast({
-          title: '出单成功',
-          icon: 'none'
+        wx.showModal({
+          title: `确认支付${this.data.price}给商家`,
+          content: '',
+          success:(res) => {
+            if(res.confirm){
+              // wx.switchTab({
+              //   url: '../../user/bills/bills',
+              // })
+              wx.navigateTo({
+                url: '../../user/bills/bills',
+              })
+            }else{
+              wx.showToast({
+                title: '支付是吧',
+                icon: 'failed'
+              })
+            }
+          }
         })
       } else {
         wx.showToast({

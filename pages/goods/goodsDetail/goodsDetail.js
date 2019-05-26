@@ -124,10 +124,11 @@ Page({
       }
     })
   },
+  /**
+   * 加入购物车
+   */
   addToCar(){
-    let userInfo = JSON.parse(wx.getStorageSync('userInfo'));
     let data = {
-      id: userInfo._id,
       goodsId: this.data.goodsData._id
     }
     T.addToCar(data).then(res => {
@@ -143,5 +144,27 @@ Page({
         })
       }
     })
+  },
+  /**
+   * 立即购买
+   */
+  goToBuy(){
+    let data = {
+      goodsId: this.data.goodsData._id
+    }
+    T.addToCar(data).then(res => {
+      if (res.success) {
+        wx.setStorageSync('carArray', JSON.stringify([this.data.goodsData._id]));
+        wx.navigateTo({
+          url: '../settleAccounts/settleAccounts',
+        })
+      } else {
+        wx.showToast({
+          title: '订单加载失败',
+          icon: 'error'
+        })
+      }
+    })
+    
   }
 })

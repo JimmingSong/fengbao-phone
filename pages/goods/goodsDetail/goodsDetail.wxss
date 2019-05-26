@@ -33,6 +33,13 @@
   color: #bbb;
   font-size: 32rpx;
 }
+.detail-img{
+  width: 95%;
+  margin: 0 auto;
+}
+.detail-img image{
+  width: 100%;
+}
 .detail-img>view{
   text-align: center;
 }
@@ -53,8 +60,8 @@
   letter-spacing: 8rpx;
 }
 .detail-operate>view:first-child{
-  background: #ffc23f;
+  background: #5dbaa9;
 }
 .detail-operate>view:last-child{
-  background: #fc4e4e;
+  background: #108387;
 }

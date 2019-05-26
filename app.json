@@ -11,7 +11,8 @@
     "pages/user/editAddress/editAddress",
     "pages/user/message/message",
     "pages/goods/shoppingCar/shoppingCar",
-    "pages/goods/settleAccounts/settleAccounts"
+    "pages/goods/settleAccounts/settleAccounts",
+    "pages/user/bills/bills"
   ],
   "window": {
     "backgroundTextStyle": "light",

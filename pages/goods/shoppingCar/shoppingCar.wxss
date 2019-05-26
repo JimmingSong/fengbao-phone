@@ -30,7 +30,7 @@
   border-radius: 50%;
 }
 .onlinechoose .hotel_list .list_cons{
-  width: 750rpx;
+  width: 720rpx;
   height: 200rpx;
 }
 .onlinechoose .list_cons .lefts{
