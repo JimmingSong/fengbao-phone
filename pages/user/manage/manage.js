@@ -89,5 +89,10 @@ Page({
     wx.navigateTo({
       url: '../adress/adress',
     })
+  },
+  jumpToBill(){
+    wx.navigateTo({
+      url: '../bills/bills',
+    })
   }
 })

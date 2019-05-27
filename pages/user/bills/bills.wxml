@@ -1,4 +1,7 @@
 <!--pages/user/bills/bills.wxml-->
 <view>
-  <view></view>
+  <view>我的订单</view>
+  <view wx:for='{{billArr}}'>
+    <view>bb</view>
+  </view>
 </view>

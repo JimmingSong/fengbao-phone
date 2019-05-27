@@ -21,7 +21,7 @@
     <li-list
     text='我的订单'
     icon='icon-coordinates_fill'
-    bind:toPage=''
+    bind:toPage='jumpToBill'
     ></li-list>
     <li-list
     text='产品管理'
