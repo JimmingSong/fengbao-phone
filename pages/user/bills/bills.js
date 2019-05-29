@@ -1,4 +1,5 @@
 // pages/user/bills/bills.js
+import T from '../../../utils/request.js';
 Page({
 
   /**
@@ -19,7 +20,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.findBill();
   },
 
   /**
@@ -62,5 +63,14 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  findBill(){
+    T.findBild().then(res => {
+      if(res.success){
+        this.setData({
+          billArr: res.value
+        })
+      }
+    })
   }
 })

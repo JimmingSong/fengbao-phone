@@ -1,7 +1,10 @@
 <!--pages/user/bills/bills.wxml-->
 <view>
   <view>我的订单</view>
-  <view wx:for='{{billArr}}'>
-    <view>bb</view>
+  <view wx:for='{{billArr}}' wx:key='{{index}}'>
+    <view>{{item._id}}</view>
+    <view wx:for='{{item.goods}}'>
+      <view>{{item.quality}}</view>
+    </view>
   </view>
 </view>

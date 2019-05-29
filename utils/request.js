@@ -126,5 +126,11 @@ module.exports = {
    */
   createBil(data) {
     return ajax('/bill/create', data)
+  },
+  /**
+   * 查询订单
+   */
+  findBild(data) {
+    return ajax('/bill/find', data)
   }
 }
