@@ -70,10 +70,7 @@ Page({
    * 查询详细数据
    */
   searchDetail(options){
-    console.log(options);
-    let userInfo = JSON.parse(wx.getStorageSync('userInfo'));
     let data = {
-      customerId: userInfo._id,
       ...options
     }
     T.searchGoodsById(data).then(res => {
@@ -95,11 +92,9 @@ Page({
    */
   collection(){
     // let userInfo = App.globalData.userInfo;
-    let userInfo = JSON.parse(wx.getStorageSync('userInfo'));
     let goodsData = this.data.goodsData;
     let data = {
       like: 'cancel', // add 收藏 cancel 取消收藏
-      update: userInfo._id,
       id: this.data.goodsData._id
     }
     if (this.data.like_icon === 'icon-collection'){

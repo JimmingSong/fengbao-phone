@@ -17,7 +17,7 @@
   <view class='bill-goods'>
     <view wx:for='{{goodsList}}' wx:key='{{index}}' class='bill-goods-item'>
       <view class='bill-goods-img'>
-        <image src='http://{{item.productImg}}'></image>
+        <image src='{{item.productImg}}'></image>
       </view>
       <view class='bill-goods-msg'>
         <view class='line2-ellipsis'>

@@ -1,7 +1,7 @@
 <!--pages/goods/goodsDetail/goodsDetail.wxml-->
 <view class='detail'>
   <view class='detail-carousel'>
-    <image src="{{'http://' + goodsData.productImg}}"></image>
+    <image src="{{goodsData.productImg}}"></image>
   </view>
   <view class='detail-msg'>
       <view class='detail-name'>{{goodsData.productName}}</view>

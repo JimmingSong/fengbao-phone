@@ -28,7 +28,7 @@
             <icon type="success" size="30" color="{{del?'red': '#108387'}}" data-index='{{index}}' bindtap='cancelCheck' />
           </block>
         </view>
-        <image src='http://{{i.productImg}}'></image>
+        <image src='{{i.productImg}}'></image>
         <view class='right'>
           <view class='name'>
             {{i.productName}}

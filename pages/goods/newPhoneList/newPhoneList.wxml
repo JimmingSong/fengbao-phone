@@ -7,7 +7,7 @@
   </view>
   <view class='goods'>
     <view wx:for='{{goodsList}}' wx:for-key='key' wx:key='key' wx:for-item="item" class='goods-item' data-id='{{item._id}}' bindtap='viewDetail'>
-      <image src="{{'http://'+item.productImg}}"></image>
+      <image src="{{item.productImg}}"></image>
       <view class='text-box'>
         <view class='text-title'>{{item.productName}}</view>
         <view class='text-price'>￥{{item.productPrice}}</view>

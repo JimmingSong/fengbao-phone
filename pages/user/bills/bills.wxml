@@ -3,8 +3,10 @@
   <view>我的订单</view>
   <view wx:for='{{billArr}}' wx:key='{{index}}'>
     <view>{{item._id}}</view>
-    <view wx:for='{{item.goods}}'>
-      <view>{{item.quality}}</view>
+    <view wx:for='{{item.goods}}' wx:key='{{index}}'>
+      <view>
+        <view>{{item.productImg}}</view>
+      </view>
     </view>
   </view>
 </view>
