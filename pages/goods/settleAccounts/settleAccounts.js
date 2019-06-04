@@ -79,7 +79,11 @@ Page({
     })
   },
   searchGoodsById(data){
-    T.findToCar(data).then(res => {
+    let urlHistory = getCurrentPages();
+    if (urlHistory[urlHistory.length - 2].route === 'pages/goods/shoppingCar/shoppingCar'){
+      data.type = 'shopCar'
+    };
+    T.settleFindGoods(data).then(res => {
       if(res.success){
         this.setData({
           goodsList: res.value,

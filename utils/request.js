@@ -132,5 +132,11 @@ module.exports = {
    */
   findBild(data) {
     return ajax('/bill/find', data)
+  },
+  /**
+   * 结算页面查询
+   */
+  settleFindGoods(data) {
+    return ajax('/settle/find', data)
   }
 }

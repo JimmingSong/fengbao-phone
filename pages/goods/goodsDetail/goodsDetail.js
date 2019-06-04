@@ -144,22 +144,9 @@ Page({
    * 立即购买
    */
   goToBuy(){
-    let data = {
-      goodsId: this.data.goodsData._id
-    }
-    T.addToCar(data).then(res => {
-      if (res.success) {
-        wx.setStorageSync('carArray', JSON.stringify([this.data.goodsData._id]));
-        wx.navigateTo({
-          url: '../settleAccounts/settleAccounts',
-        })
-      } else {
-        wx.showToast({
-          title: '订单加载失败',
-          icon: 'error'
-        })
-      }
+    wx.setStorageSync('carArray', JSON.stringify([this.data.goodsData._id]));
+    wx.navigateTo({
+      url: '../settleAccounts/settleAccounts',
     })
-    
   }
 })

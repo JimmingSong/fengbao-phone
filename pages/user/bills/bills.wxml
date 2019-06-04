@@ -5,7 +5,10 @@
     <view>{{item._id}}</view>
     <view wx:for='{{item.goods}}' wx:key='{{index}}'>
       <view>
-        <view>{{item.productImg}}</view>
+        <view><image src='{{item.productImg}}'></image></view>
+        <view>
+          <view>{{item.productName}}</view>
+        </view>
       </view>
     </view>
   </view>
