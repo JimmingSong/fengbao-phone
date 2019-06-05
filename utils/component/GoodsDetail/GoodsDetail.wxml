@@ -1,0 +1,6 @@
+<!--utils/component/GoodsDetail/GoodsDetail.wxml-->
+<view>
+  <view>
+    <image src='{{goodsData.productImg}}'></image>
+  </view>
+</view>
