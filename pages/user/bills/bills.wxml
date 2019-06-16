@@ -2,17 +2,12 @@
 <view>
   <view>我的订单</view>
   <view wx:for='{{billArr}}' wx:key='{{index}}'>
-    <view>{{item._id}}</view>
-    <block wx:form='{{item.goods}}' wx:for-item='doc'>
-      <goodsDetail goodsData='doc'></goodsDetail>
+    <view class='bill-id-box'>
+      <text>订单号: <text class='bill-id'>{{item._id}}</text></text>
+      <text class='iconfont icon-enter'></text>
+    </view>
+    <block wx:for='{{item.goods}}' wx:for-item='doc'>
+      <goodsDetail goodsData='{{doc}}'></goodsDetail>
     </block>
-    <!-- <view wx:for='{{item.goods}}' wx:key='{{index}}'>
-      <view>
-        <view><image src='{{item.productImg}}'></image></view>
-        <view>
-          <view>{{item.productName}}</view>
-        </view>
-      </view>
-    </view> -->
   </view>
 </view>

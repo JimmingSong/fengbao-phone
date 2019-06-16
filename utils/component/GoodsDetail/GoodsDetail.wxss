@@ -1,1 +1,35 @@
 /* utils/component/GoodsDetail/GoodsDetail.wxss */
+.goods-detail{
+  display: flex;
+  padding: 20rpx 10rpx;
+}
+.goods-detail-img{
+  width: 200rpx;
+  height: 200rpx;
+  margin-right: 10rpx;
+  border-radius:10rpx;
+  overflow:hidden;
+}
+.goods-detail-img image {
+  width: 200rpx;
+  height: 200rpx;
+}
+.goods-detail-name {
+  display: flex;
+  width: 440rpx;
+  font-size: 30rpx;
+}
+.goods-detail-quality{
+  width: 100rpx
+}
+
+.line2-ellipsis{
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  height: 110rpx;
+}

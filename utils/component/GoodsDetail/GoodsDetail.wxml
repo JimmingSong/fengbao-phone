@@ -1,6 +1,13 @@
 <!--utils/component/GoodsDetail/GoodsDetail.wxml-->
-<view>
-  <view>
+<view class='goods-detail'>
+  <view class='goods-detail-img'>
     <image src='{{goodsData.productImg}}'></image>
+  </view>
+  <view class='goods-detail-name'>
+    <view class='line2-ellipsis'>{{goodsData.productName}}</view>
+  </view>
+  <view class='goods-detail-quality'>
+    <view>{{goodsData.productPrice}}</view>
+    <view>x{{goodsData.quality}}</view>
   </view>
 </view>
